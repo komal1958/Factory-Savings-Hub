@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Savings Hub - Shop Now</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f2f2f2; /* Light grey */
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+            color: #000000; /* Default text color */
+            margin: 0;
+            padding: 0;
+        }
+        .info-bar {
+            background-color: #6a0dad; /* Purple */
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .navbar {
+            background-color: #000000;
+            border-bottom: 4px solid #6a0dad; /* Purple */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+        .navbar-brand {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+        .nav-link {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .nav-link:hover {
+            color: #6a0dad; /* Purple */
+        }
+        .search-bar {
+            width: 200px; /* Adjust to make it compact */
+        }
+        .user-account {
+            color: #ffffff;
+            font-size: 1.5rem; 
+            margin-left: 1rem;
+        }
+        
+    .hero {
+      background-image: url(showroom.jpg);
+        background-size: cover;
+        background-position: center;/* Ensure the image is centered */
+        height: 510px; /* Reduced height for a smaller image */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            
+            z-index: -1;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        .btn-luxury {
+            background-color: #6a0dad; /* Purple */
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.2rem;
+        }
+        .btn-luxury:hover {
+            background-color: #5a00b0; /* Darker Purple */
+        }
+        .footer {
+  background-color: #000000; /* Black background */
+  color: #ffffff;
+  padding: 2rem 0;
+  border-top: 5px solid #6a0dad; /* Purple border */
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 0 1rem;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #6a0dad; /* Purple for hover effect */
+}
+
+.contact-info {
+  margin-top: 1rem;
+}
+
+.contact-info a {
+  display: block;
+  margin: 0.5rem 0;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+  color: #6a0dad; 
+}
+
+.main-content {
+        margin-bottom: 50px; 
+        padding: 20px; 
+    }
+
+    .carousel-inner img {
+        width: 70%;
+        height: 400px; /* Adjust height to match the space provided */
+        object-fit: cover; /* Ensures the images fill the space without distortion */
+    }
+
+    .shop-button-container {
+    background-image: url('showroom.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    padding: 40px; /* Adjust padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 20px; /* Space above the button */
+    display: flex; /* Center the button inside */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 200px; /* Set a fixed height for the container */
+}
+
+    </style>
+</head>
+<body>
+
+
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <p><strong>Exclusive Sale: Up to 60% off on selected luxury brands!</strong></p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Factory Savings Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/landingpgfinal.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/projectfee.html">Outlets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/1stpagr.html">Shop Now</a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Contact</a>
+                </li>
+            </ul>
+            <!-- Search Bar -->
+            <form class="form-inline ml-auto">
+               
+                <!-- User Account Icon
+                <a href="" class="user-account"><i class="fas fa-user"></i></a> -->
+            </form>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Shop Now</h1>
+        <p>Explore our latest collection and enjoy the best deals on premium brands.</p>
+        <div  class="shop-button-container">
+        <a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/3rdpg.html" class="btn btn-luxury">Start Shopping</a>
+    </div>      
+        </header>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        
+            <h2 class="section-title">Welcome to Factory Savings Hub, where fashion is a thrill!</h2>
+            
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="C:\Users\welcome\OneDrive\Desktop\fee final\photos\office_core.webp" class="d-block w-100" alt="First slide" style="height: 400px; object-fit: cover;">
+                </div>
+                <div class="carousel-item">
+                  <img src="C:\Users\welcome\OneDrive\Desktop\fee final\photos\littlebox.webp" class="d-block w-100" alt="Second slide" style="height: 400px; object-fit: cover;">
+                </div>
+                <div class="carousel-item">
+                  <img src="C:\Users\welcome\OneDrive\Desktop\fee final\photos\GREEN_RUNWAY_WEB.webp" class="d-block w-100" alt="Third slide" style="height: 400px; object-fit: cover;">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <!-- Shop by Categories -->
+           
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Shop By Categories</h4>
+        <ul>
+          <li><a href="#">Dresses & Jumpsuits</a></li>
+          <li><a href="#">Tops</a></li>
+          <li><a href="#">T-Shirts</a></li>
+          <li><a href="#">Shirts</a></li>
+          <li><a href="#">Printed T-shirt</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Contact Us</a></li>
+          <li><a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Find a Store</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Stay Connected</h4>
+        <ul>
+          
+          <li>
+            <a href="https://www.instagram.com/factoryyy_savingggg_hub/profilecard/?igsh=N2tnM3gzbDBmY29o" target="_blank">
+              <img src="https://cdn.iconscout.com/icon/free/png-256/instagram-216-721958.png" alt="Instagram" width="30" height="30" />
+            </a>
+          </li>
+          
+        </ul>
+        <ul>
+          <a href=https://wa.me/8968813747 target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp" width="30" height="30" />
+           
+          </a>
+      </ul>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body> 
+</html>
+
+

@@ -1,0 +1,35 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Factory Savings Hub</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/landingpgfinal.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/projectfee.html">Outlets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/1stpagr.html">Shop Now</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Contact</a>
+            </li>
+        </ul>
+        <div class="ml-auto"> <!-- This div pushes the button to the right -->
+            <button class="btn btn-luxury" onclick="logout()">Log Out</button>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function logout() {
+        // Clear session data and redirect
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = "file:///C:/path/to/logout_or_homepage.html";
+    }
+</script>

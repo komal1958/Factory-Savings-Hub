@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Savings Hub - Luxury Clothing Outlet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f2f2; /* Light grey */
+            font-family: 'Georgia', serif;
+            scroll-behavior: smooth;
+            color: #000000; /* Default text color */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .info-bar {
+            background-color: #6a0dad; /* Purple */
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .navbar {
+            background-color: #000000;
+            border-bottom: 4px solid #6a0dad; /* Purple */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: transform 0.3s; /* Smooth transition for header movement */
+        }
+        .navbar-brand {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+        .nav-link {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .nav-link:hover {
+            color: #6a0dad; /* Purple */
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1600x500') no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border-bottom: 5px solid #6a0dad; /* Purple */
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-header {
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .section-header h2 {
+            border-bottom: 3px solid #6a0dad; /* Purple */
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            color: #000000;
+            font-size: 2.5rem;
+        }
+        .section-header h3 {
+            margin-top: 2rem;
+            color: #333333;
+            font-weight: 600;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .card-title {
+            font-weight: 600;
+        }
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 4rem 0;
+            border-top: 5px solid #6a0dad; /* Purple */
+        }
+        .footer h5 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            border-bottom: 2px solid #6a0dad; /* Purple */
+            padding-bottom: 0.5rem;
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-list li {
+            margin-bottom: 0.5rem;
+        }
+        .contact-list a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+        .footer p {
+            font-size: 1.2rem;
+        }
+        .font-weight-bold {
+            font-weight: 700;
+        }
+        .brand-card {
+            margin-bottom: 3rem; /* Increased margin for more spacing */
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .brand-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .brand-card img {
+            width: 350px; /* Adjusted width */
+            height: 300px; /* Adjusted height */
+            object-fit: cover;
+        }
+        .btn-luxury {
+            background-color: #6a0dad; /* Purple */
+            color: #ffffff;
+            border: none;
+        }
+        .btn-luxury:hover {
+            background-color: #5a00b0; /* Darker Purple */
+        }
+        .search-bar {
+            max-width: 400px; /* Adjusted max width for search bar */
+        }
+        .section-content {
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+        }
+        .section-content img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .section-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #6a0dad; /* Purple */
+        }
+        .section-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .header-moving {
+    /* Remove the transition effect */
+    transition: none;
+}
+</style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar"><br> <br><br>
+        <p><strong>Exclusive Sale: Up to 60% off on selected luxury brands!</strong></p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark header-moving">
+        <a class="navbar-brand" href="#">Factory Savings Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#outlets">Outlets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2 search-bar" type="search" placeholder="Search for brands" aria-label="Search">
+                <button class="btn btn-luxury my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="container">
+            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+                <source src= type="video/mp4">
+            </video>
+            <h1>Welcome to Factory Savings Hub</h1>
+            <p>Experience luxury like never before with exclusive discounts on top brands.</p>
+            
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Exclusive Collections Section -->
+        <div class="section-header" id="outlets">
+            <h2>Exclusive Collections</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Existing Collections -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.gucci.com/us/en/?srsltid=AfmBOoqMr0Z_35VBpYp72vgQ1okyP_yJOo3LLb2yor7JsAMCijADDKCS class="hero-link">
+                    <img src="C:\Users\welcome\Downloads\download (11) (2).png"class="card-img-top" alt="Collection 1">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Collection 1: Gucci</h5>
+                        <p>Explore the luxurious designs of Gucci, featuring an exclusive collection with significant discounts.</p>
+                        <a href="#" class="btn btn-luxury">Discover Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.prada.com/ww/en.html class="hero-link">
+                    <img src="C:\Users\welcome\Downloads\download (14).png" class="card-img-top" alt="Collection 2">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Collection 2: Prada</h5>
+                        <p>Prada brings you the finest in luxury clothing, all at best prices.</p>
+                        <a href="#" class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.dior.com/ class="hero-link">
+                    <img src="C:\Users\welcome\Downloads\download (16).png" class="card-img-top" alt="Collection 3">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Collection 3: Dior</h5>
+                        <p>Discover the elegance of Dior with our handpicked selection of high-end garments.</p>
+                        <a href="#" class="btn btn-luxury">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- New Collections -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.versace.com/in/en/ class="hero-link">
+                    <img src="C:\Users\welcome\Downloads\download (17).png" class="card-img-top" alt="Collection 4">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Collection 4: Versace</h5>
+                        <p>Embrace the Versace with our latest collection, featuring contemporary styles and sleek designs.</p>
+                        <a href="#" class="btn btn-luxury">See More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://in.louisvuitton.com/eng-in/homepage class="hero-link">
+                    <img src="C:\Users\welcome\Downloads\download (18).png" class="card-img-top" alt="Collection 5">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Collection 5: Louis Vuitton</h5>
+                        <p>Classic Elegance showcases timeless pieces that never go out of style, offering grace and sophistication.</p>
+                        <a href="#" class="btn btn-luxury">Browse Collection</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.chanel.com/in/ class="hero-link">
+                    <img src="C:\Users\welcome\Downloads\download (12) (1).png" class="card-img-top" alt="Collection 6">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Collection 6: Chanel</h5>
+                        <p>Step into the scene with our Chanel collection, featuring the latest in lux fashion.</p>
+                        <a href="#" class="btn btn-luxury">Shop Trendy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Collections Section -->
+        <div class="section-header">
+            <h2>New Collections</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="section-content">
+                    <img src="C:\Users\welcome\Downloads\images (1).png" alt="Accessories">
+                    <h3>Accessories</h3>
+                    <p>Discover our new range of accessories to complement your luxury wardrobe. From statement jewelry to stylish belts, find the perfect finishing touch.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-content">
+                    <img src="C:\Users\welcome\Downloads\6ea1588213b49926a7ab96faf2f9df0b.png" alt="Dresses">
+                    <h3>Dresses</h3>
+                    <p>Explore our stunning new collection of dresses, designed to make a statement at any occasion. Elegant, chic, and perfect for any event.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-content">
+                    <img src="C:\Users\welcome\Downloads\images (1) (1) (1).png" alt="Sunglasses">
+                    <h3>Sunglasses</h3>
+                    <p>Check out our latest sunglasses collection. From classic aviators to trendy oversized styles, protect your eyes in style.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-content">
+                    <img src="C:\Users\welcome\Downloads\download (9) (1).png" alt="Purse">
+                    <h3>Purse</h3>
+                    <p>Elevate your accessory game with our new range of purses. Choose from elegant clutches to practical crossbody bags.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-content">
+                    <img src="C:\Users\welcome\Downloads\download (10) (1) (1).png" alt="Shoes">
+                    <h3>Shoes</h3>
+                    <p>Step out in style with our latest shoe collection. Whether you're looking for elegant heels or trendy sneakers, we have you covered.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="section-content">
+                    <img src="C:\Users\welcome\Downloads\images (2) (1).png" alt="Clothes">
+                    <h3>Clothes</h3>
+                    <p>Refresh your wardrobe with our new clothing arrivals. From sophisticated blouses to stylish trousers, find your new favorites here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <h5>Contact Us</h5>
+            <ul class="contact-list">
+                <li>Email: <a href="mailto:info@factorysavingshub.com">info@factorysavingshub.com</a></li>
+                <li>Phone: +1 (800) 123-4567</li>
+                <li>Address: 123 Fashion Ave, New York, NY 10001</li>
+            </ul>
+            <p>&copy; 2024 Factory Savings Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+   
+</body>
+</html>

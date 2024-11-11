@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Savings Hub - Luxury Clothing Outlet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            /* Light grey */
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+            color: #000000;
+            /* Default text color */
+        }
+
+        .navbar {
+            background-color: #000000;
+            border-bottom: 4px solid #6a0dad;
+            /* Purple */
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .nav-link:hover {
+            color: #6a0dad;
+            /* Purple */
+        }
+
+       
+        .hero {
+            background-image: url("C:\Users\welcome\OneDrive\Desktop\fee final\photos\brand.jpg") no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            object-fit: cover;
+            z-index: 1;
+            border-bottom: 5px solid #6a0dad;
+            /* Purple */
+        }
+
+        .container {
+            max-width: 1200px;
+            /* Adjust container width */
+            margin: 0 auto;
+            /* Centers the container */
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            border-bottom: 3px solid #6a0dad;
+            /* Purple */
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            color: #000000;
+            font-size: 2.5rem;
+        }
+
+        .section-header h3 {
+            margin-top: 2rem;
+            color: #333333;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+        }
+
+        .footer {
+            background-color: #000000;
+            /* Black background */
+            color: #ffffff;
+            padding: 2rem 0;
+            border-top: 5px solid #6a0dad;
+            /* Purple border */
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 1rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+            color: #6a0dad;
+            /* Purple for hover effect */
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            display: block;
+            margin: 0.5rem 0;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #6a0dad;
+            /* Purple for hover effect */
+        }
+
+        .info-bar {
+            background-color: #6a0dad;
+            /* Purple */
+            color: #ffffff;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .brand-card {
+            margin-bottom: 2rem;
+            /* Increased margin for more spacing */
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .brand-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-card img {
+            width: 29vw;
+            /* Adjusted width */
+            height: 50vh;
+            /* Adjusted height */
+            object-fit: cover;
+        }
+
+        .btn-luxury {
+            background-color: #480e78;
+            /* Purple */
+            color: #f0f0f1;
+            border: none;
+        }
+
+        .btn-luxury:hover {
+            background-color: #5a00b0;
+            /* Darker Purple */
+        }
+
+        .search-bar {
+            max-width: 400px;
+            /* Adjusted max width for search bar */
+        }
+
+        .section-content {
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        .section-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #6a0dad;
+            /* Purple */
+        }
+
+        .section-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-list li {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero-image{
+            width: 98.5vw;
+        }
+        .user-account {
+            color: #ffffff;
+            font-size: 1.5rem; 
+            margin-left: 1rem;
+        }
+        .btn-fashion-news {
+    background-color: #6a0dad; /* Purple color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Font size */
+    font-family: "Poppins", sans-serif; /* Font style */
+    border: none; /* No border */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-fashion-news:hover {
+    background-color: #5a00b0; /* Darker purple on hover */
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px; /* Distance from the bottom */
+    right: 30px;  /* Distance from the right, ensuring it's on the right side */
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background-color: #333;
+}
+
+
+    </style>
+</head>
+
+<body>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <p>Exclusive Sale: Up to 60% off on selected luxury brands! Shop Now!</p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Factory Savings Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse-avbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link"
+                        href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/landingpgfinal.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#outlets">Outlets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+           
+                
+                    </div>
+                  </div>
+                  <!-- <form class="form-inline ml-auto">
+                    <a href="http://127.0.0.1:5500/api.html" class="btn-fashion-news">Fashion News</a>
+
+                    
+                
+            </form>
+        </div> -->
+    </nav>
+    <button class="btn btn-luxury ml-auto" onclick="logout()">Log Out</button>
+
+<script>
+    function logout() {
+        // Ask for confirmation
+        if (confirm("Are you sure you want to log out?")) {
+            // Clear session data (if any)
+            localStorage.clear();
+            sessionStorage.clear();
+
+            // Redirect to the login or home page
+            window.location.href = "file:///C:/path/to/logout_or_homepage.html";
+        }
+    }
+</script>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container1">
+            <img src="C:\Users\welcome\OneDrive\Desktop\fee final\brand.jpg " alt="Factory Savings Hub Banner"
+                class="hero-image" height="500px">
+
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Featured Luxury Brands Section -->
+        <div class="section-header" id="outlets">
+            <h2>Featured Brands</h2>
+        </div>
+
+        <div class="row">
+            <!-- Brand 1 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://luxecouture.co.uk/ target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (6) (1) (1).png" class="card-img-top"
+                            alt="Brand 1">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 1: Luxe Couture</h5>
+                        <p>Discover the elegance of Luxe Couture. Shop their latest collection with up to 50% off.</p>
+                        <a href="https://luxecouture.co.uk/" class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 2 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://the-elite-fashion-0786.myshopify.com/?srsltid=AfmBOopgI24EQ8s8bx-Z2qNCHj6Ow3l0IRElNy22ZMEJgLsV30_d_pxF
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (13).png" class="card-img-top" alt="Brand 2">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 2: Elite Fashion</h5>
+                        <p>Indulge in high-end fashion from Elite Fashion. Enjoy discounts up to 40% on their premium
+                            range.</p>
+                        <a href="https://the-elite-fashion-0786.myshopify.com/?srsltid=AfmBOopgI24EQ8s8bx-Z2qNCHj6Ow3l0IRElNy22ZMEJgLsV30_d_pxF"
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 3 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.meerasplussizestore.com/collections/the-royal-elegance-unveil-your-inner-queen?srsltid=AfmBOoocIDdIs4dj3eFM0oPe3RY7JpYRVQKixwsNuFZGxaokRMWk51a6
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (12).png" class="card-img-top" alt="Brand 3">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 3: Royal Elegance</h5>
+                        <p>Experience timeless beauty with Royal Elegance. Save up to 55% on select pieces.</p>
+                        <a href="https://www.meerasplussizestore.com/collections/the-royal-elegance-unveil-your-inner-queen?srsltid=AfmBOoocIDdIs4dj3eFM0oPe3RY7JpYRVQKixwsNuFZGxaokRMWk51a6 "
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 4 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www2.hm.com/ target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (11) (1).png" class="card-img-top" alt="Brand 4">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 4: H&M </h5>
+                        <p>Elevate Your Style Without Breaking the Bank – 25% Off New Arrivals</p>
+                        <a href=" https://www2.hm.com/ " class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 5 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.eliesaab.com/?srsltid=AfmBOorDOSFLb0aD_K0TaKvBgI9kRAjX7l_wl5L8kmzZobczenICpaeP
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (10).png" class="card-img-top" alt="Brand 5">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 5: Elie Saab</h5>
+                        <p>Discover the elie saab experience with up to 50% off on exclusive pieces.</p>
+                        <a href="https://www.eliesaab.com/?srsltid=AfmBOorDOSFLb0aD_K0TaKvBgI9kRAjX7l_wl5L8kmzZobczenICpaeP"
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 6 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.everydaychicboutique.com/collections/dresses?srsltid=AfmBOooHWRvGnMjioD1fr0F0evisJ-DS1tJhrbCv7TvjsjkOSmhn0fn1
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (7).png" class="card-img-top" alt="Brand 6">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 6: Everyday Chic Boutique</h5>
+                        <p>Step up your fashion game.
+                        </p>
+                        <a href="https://www.everydaychicboutique.com/collections/dresses?srsltid=AfmBOooHWRvGnMjioD1fr0F0evisJ-DS1tJhrbCv7TvjsjkOSmhn0fn1 "
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 7 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://stylehousefashion.com.au/collections/new-arrivals?srsltid=AfmBOor4et3e4Ana8JEiTC_PzHy2U02goxNYkgGU3soNkyviTjYauEWY
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (6).png" class="card-img-top" alt="Brand 7">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 7: Style House Fashion</h5>
+                        <p>Discover the latest trends at Style House Fahion with up to 50% off on exclusive items.</p>
+                        <a href="https://stylehousefashion.com.au/collections/new-arrivals?srsltid=AfmBOor4et3e4Ana8JEiTC_PzHy2U02goxNYkgGU3soNkyviTjYauEWY "
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 8 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.styched.in/?srsltid=AfmBOoqcjrBGJp--4isafwELLjUkMlLQJzy4cNR4-y6gkpc61PhkGzhw
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (4) (2) (1).png" class="card-img-top"
+                            alt="Brand 8">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 8: Styched</h5>
+                        <p>Find timeless elegance at Styched with discounts up to 60%.Get trendy styles and fashion collection.</p>
+                        <a href=" https://www.styched.in/?srsltid=AfmBOoqcjrBGJp--4isafwELLjUkMlLQJzy4cNR4-y6gkpc61PhkGzhw"
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 9 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://glamorous.com/collections/clothing?srsltid=AfmBOoqcYMJOVjkY-NNj_6LYVWRTw6KRR1TzrrECtBM2_BxxpagHP_tz
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (5).png" class="card-img-top" alt="Brand 9">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 9: Glamorous</h5>
+                        <p>Elevate your wardrobe with Glamorous and enjoy up to 50% off on selected pieces.</p>
+                        <a href="https://glamorous.com/collections/clothing?srsltid=AfmBOoqcYMJOVjkY-NNj_6LYVWRTw6KRR1TzrrECtBM2_BxxpagHP_tz "
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 10 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.prestigefashion.com/ target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (4) (1).png" class="card-img-top" alt="Brand 10">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 10: Prestige Fashion</h5>
+                        <p>Discover sophisticated styles at Prestige Fashion with up to 45% off.</p>
+                        <a href=" https://www.prestigefashion.com/ " class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 11 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwj9m-ro-Z-IAxUIo2YCHeBFAd4YABABGgJzbQ&co=1&ase=2&gclid=Cj0KCQjw_sq2BhCUARIsAIVqmQt62mD2lM2A0A1WCxnIaxyvUQN9oxRm2vcgIbG7w8vMXxIdHpidiwQaArpXEALw_wcB&ohost=www.google.com&cid=CAESVeD2OSM2g7dqS5zcUlZVhW39d07lVhIFHBhTBaXjJNyL2yFklWVPwa_KL65gGbbn_YDGJxweIr0-OAEl25-Z0T_YCyq8KxnseYoaEUFyGQM4ard6V8s&sig=AOD64_0NdJhgwei6lYaAO33Xfvv7C7egSg&q&nis=4&adurl&ved=2ahUKEwjnqOTo-Z-IAxVSS2cHHYVGDTIQ0Qx6BAgfEAE
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (1).png" class="card-img-top" alt="Brand 11">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 11: Trendy Threads</h5>
+                        <p>Shop trendy threads with discounts up to 50% on their latest collections.</p>
+                        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwj9m-ro-Z-IAxUIo2YCHeBFAd4YABABGgJzbQ&co=1&ase=2&gclid=Cj0KCQjw_sq2BhCUARIsAIVqmQt62mD2lM2A0A1WCxnIaxyvUQN9oxRm2vcgIbG7w8vMXxIdHpidiwQaArpXEALw_wcB&ohost=www.google.com&cid=CAESVeD2OSM2g7dqS5zcUlZVhW39d07lVhIFHBhTBaXjJNyL2yFklWVPwa_KL65gGbbn_YDGJxweIr0-OAEl25-Z0T_YCyq8KxnseYoaEUFyGQM4ard6V8s&sig=AOD64_0NdJhgwei6lYaAO33Xfvv7C7egSg&q&nis=4&adurl&ved=2ahUKEwjnqOTo-Z-IAxVSS2cHHYVGDTIQ0Qx6BAgfEAE "
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 12 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://sassafras.in/collections/https-sassafras-in-collections-modern-elegance-utm_source-direct-utm_medium-website-utm_campaign-modern_elegance?page=5
+                        target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (3).png" class="card-img-top" alt="Brand 12">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 12: Modern Elegance</h5>
+                        <p>Discover modern elegance with up to 50% off on exclusive fashion pieces.</p>
+                        <a href="https://sassafras.in/collections/https-sassafras-in-collections-modern-elegance-utm_source-direct-utm_medium-website-utm_campaign-modern_elegance?page=5 "
+                            class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 13 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://urbanchic.in/ target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download (2).png" alt="Peter England">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 13: Urban Chic</h5>
+                        <p>Step into urban chic fashion with discounts up to 45% on select items.</p>
+                        <a href="https://urbanchic.in/  " class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 14 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.luxelooks.in/ target="_blank">
+                        <img src="C:\Users\welcome\Downloads\download.png" class="card-img-top" alt="Brand 14">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 14: Luxe Look</h5>
+                        <p>Elevate your style. discounts up to 50% on their premium range.</p>
+                        <a href="https://www.luxelooks.in/ " class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand 15 -->
+            <div class="col-md-4">
+                <div class="card brand-card">
+                    <a href=https://www.fwrd.com/ target="_blank"></a>
+                    <img src="C:\Users\welcome\Downloads\Screenshot 2024-09-01 010034.png" class="card-img-top"
+                        alt="Brand 15">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Brand 15: Forward</h5>
+                        <p>Discover forward-thinking fashion with up to 55% off on select pieces.</p>
+                        <a href="https://www.fwrd.com/ " class="btn btn-luxury">Explore More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="section-header" id="about">
+            <h2>About Us</h2>
+            <div class="section-content">
+                <h3>Our Mission</h3>
+                <p>At Factory Savings Hub, our mission is to bring you unparalleled luxury at unbeatable prices. We
+                    collaborate with renowned brands to provide exclusive offers and ensure you have access to the
+                    finest clothing collections. Our commitment is to deliver quality, style, and savings, making luxury
+                    fashion accessible to everyone.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section-header" id="contact">
+            <h2>Contact Us</h2>
+            <div class="section-content">
+                <h3>Get in Touch</h3>
+                <p>If you have any questions or require assistance, please reach out to us:</p>
+                <ul class="contact-list">
+                    <li>Email: <a href="mailto:factorysavingshub@gmail.com">factorysavingshub@gmail.com</a></li>
+                    <li>Phone: +91 8360798953</li>
+                    <li>Address: Factory Savings Hub, Sector - 9 , Panchkula</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Shop By Categories</h4>
+                <ul>
+                    <li><a href="#">Dresses & Jumpsuits</a></li>
+                    <li><a href="#">Tops</a></li>
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Shirts</a></li>
+                    <li><a href="#">Printed T-shirt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Contact Us</a></li>
+                    <li><a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Find a Store</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Connected</h4>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/factoryyy_savingggg_hub/profilecard/?igsh=N2tnM3gzbDBmY29o" target="_blank">
+                          <img src="https://cdn.iconscout.com/icon/free/png-256/instagram-216-721958.png" alt="Instagram" width="30" height="30" />
+                        </a>
+                      </li>
+                </ul>
+                <ul>
+                    <a href=https://wa.me/8968813747 target="_blank">
+                      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp" width="30" height="30" />
+                     
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p>&copy; 2024 Factory Savings Hub. All rights reserved.</p>
+            <a href="mailto:info@factorysavingshub.com">Email: factorysavingshub@gmail.com</a>
+            <a href="tel:+918360798953">Phone: +91 8360798953</a>
+        </div>
+        <button id="backToTop" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+    </footer>
+    
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+    window.onscroll = function() { scrollFunction() };
+
+  function scrollFunction() {
+      var button = document.getElementById("backToTop");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          button.style.display = "block";
+      } else {
+          button.style.display = "none";
+      }
+  }
+  
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+</body>
+
+</html>

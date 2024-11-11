@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACTORY SAVING HUB - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 800px;
+            height: 400px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .welcome-section {
+            background: linear-gradient(to bottom, #6a0dad, #2f2f2f);
+            color: white;
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .welcome-section h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .welcome-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .welcome-section button {
+            width: 100%;
+            padding: 15px;
+            background-color: #fff;
+            border: none;
+            border-radius: 25px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .welcome-section button:hover {
+            background-color: #e5e5e5;
+        }
+        .form-section {
+            width: 50%;
+            padding: 40px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form-section.active {
+            display: flex;
+        }
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .form-section input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+        .form-section button {
+            width: 100%;
+            padding: 15px;
+            background-color: #6c5ce7;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .form-section button.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .form-section button:hover {
+            background-color: #5c49b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-section">
+            <h1>Welcome to FACTORY SAVING HUB</h1>
+            <p>Get, Gift, Glow</p>
+            <button id="signUpBtn">SIGN UP</button>
+            <button id="signInBtn">SIGN IN</button>
+
+        </div>
+        <div class="form-section" id="signUpForm">
+            <h2>SIGN UP</h2>
+            <input type="text" id="signUpName" placeholder="Your Name">
+            <input type="email" id="signUpEmail" placeholder="Your Email">
+            <input type="password" id="signUpPassword" placeholder="Your Password">
+            <button id="createAccountBtn">CREATE ACCOUNT</button>
+        </div>
+        <div class="form-section" id="signInForm">
+            <h2>SIGN IN</h2>
+            <input type="email" id="signInEmail" placeholder="Your Email">
+            <input type="password" id="signInPassword" placeholder="Your Password">
+            <button id="signInBtnForm">SIGN IN</button>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const signUpBtn = document.getElementById('signUpBtn');
+        const signInBtn = document.getElementById('signInBtn');
+        const signUpForm = document.getElementById('signUpForm');
+        const signInForm = document.getElementById('signInForm');
+        const createAccountBtn = document.getElementById('createAccountBtn');
+        const signInBtnForm = document.getElementById('signInBtnForm');
+    
+        const signUpName = document.getElementById('signUpName');
+        const signUpEmail = document.getElementById('signUpEmail');
+        const signUpPassword = document.getElementById('signUpPassword');
+        const signInEmail = document.getElementById('signInEmail');
+        const signInPassword = document.getElementById('signInPassword');
+    
+        signUpBtn.addEventListener('click', function() {
+            signInForm.classList.remove('active');
+            signUpForm.classList.add('active');
+        });
+    
+        signInBtn.addEventListener('click', function() {
+            signUpForm.classList.remove('active');
+            signInForm.classList.add('active');
+        });
+    
+        function checkSignUpFields() {
+            if (signUpName.value && signUpEmail.value && signUpPassword.value) {
+                createAccountBtn.classList.add('active');
+            } else {
+                createAccountBtn.classList.remove('active');
+            }
+        }
+    
+        function checkSignInFields() {
+            if (signInEmail.value && signInPassword.value) {
+                signInBtnForm.classList.add('active');
+            } else {
+                signInBtnForm.classList.remove('active');
+            }
+        }
+    
+        signUpName.addEventListener('input', checkSignUpFields);
+        signUpEmail.addEventListener('input', checkSignUpFields);
+        signUpPassword.addEventListener('input', checkSignUpFields);
+    
+        signInEmail.addEventListener('input', checkSignInFields);
+        signInPassword.addEventListener('input', checkSignInFields);
+    
+        createAccountBtn.addEventListener('click', function() {
+            const user = {
+                name: signUpName.value,
+                email: signUpEmail.value,
+                password: signUpPassword.value
+            };
+            localStorage.setItem('user', JSON.stringify(user));
+            alert('Account created successfully!');
+            signUpForm.reset();
+            window.location.href = "file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/landingpgfinal.html"; // Ensure the path is correct
+
+            createAccountBtn.classList.remove('active');
+        });
+    
+        signInBtnForm.addEventListener('click', function() {
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser && storedUser.email === signInEmail.value && storedUser.password === signInPassword.value) {
+                alert('Signed in successfully!');
+                signInForm.reset();
+                signInBtnForm.classList.remove('active');
+                window.location.href = "file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/landingpgfinal.html";
+            } else {
+                alert('Invalid email or password!');
+            }
+        });
+    });
+</script>
+    
+</body>
+</html>

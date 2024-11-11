@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Factory Savings Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #fff;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4a2c77, #5b3a8c);
+            color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #5b3a8c;
+        }
+
+        main {
+            display: flex;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+            gap: 20px;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        }
+
+        .contact-info {
+            background: #333;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            flex: 1 1 100%; /* Flex-grow and flex-basis to 100% on small screens */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .map {
+            height: 400px; /* Adjusted height */
+            flex: 1 1 100%; /* Flex-grow and flex-basis to 100% on small screens */
+            border: 2px solid #4a2c77;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .contact-info h2 {
+            margin-top: 0;
+            color: #ffccff;
+        }
+
+        .contact-info p,
+        .contact-info a {
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .contact-info a {
+            color: #ffccff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #ff99ff;
+        }
+
+        .social-links {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contact-form {
+            background: #333;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .contact-form h2 {
+            margin-top: 0;
+            color: #ffccff;
+        }
+
+        .contact-form label {
+            color: #ffccff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background-color: #444;
+            color: #fff;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #5b3a8c;
+            outline: none;
+        }
+
+        .contact-form button {
+            background: #4a2c77;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #5b3a8c;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+            border-top: 2px solid #5b3a8c;
+        }
+
+        @media (min-width: 768px) {
+            /* For larger screens (like tablets), map and contact info side by side */
+            main {
+                flex-wrap: nowrap;
+            }
+
+            .contact-info,
+            .map {
+                flex: 1; /* Both map and contact info take up equal space */
+            }
+
+            .map {
+                height: 600px; /* Larger height on wider screens */
+            }
+        }
+
+        @media (max-width: 767px) {
+            /* For smaller screens (like mobile), stack items vertically */
+            .map,
+            .contact-info {
+                width: 100%;
+                height: auto; /* Height adjusts dynamically */
+                margin-bottom: 20px; /* Add space between sections */
+            }
+
+            .map iframe {
+                height: 300px; /* Reduced height of map on smaller screens */
+            }
+
+            .contact-info {
+                margin-top: 20px;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .contact-info {
+                padding: 1rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 0.6rem;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <main>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83976858897!2d76.77941738502848!3d30.72713485014209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feb5111f43f6d%3A0x7ff136ae706e0466!2sPanchkula%2C%20Haryana!5e0!3m2!1sen!2sin!4v1689932076555!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <section class="contact-info">
+            <h2>General Inquiries</h2>
+            <p>Email: <a href="mailto:factorysavingshub@gmail.com">factorysavingshub@gmail.com</a></p>
+            <p>Phone: +91 8968813747</p>
+            <p>Address: Factory Savings Hub, Sector - 9, Panchkula</p>
+
+            <h2>Customer Support</h2>
+            <p>Email: <a href="mailto:support@factorysavingshub.com">support@factorysavingshub.com</a></p>
+            <p>Phone: +91 8360798953</p>
+
+            <h2>Business Inquiries</h2>
+            <p>Email: <a href="mailto:business@factorysavingshub.com">business@factorysavingshub.com</a></p>
+            <p>Phone: +91 7009731481</p>
+
+            <h2>Follow Us</h2>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-256/instagram-216-721958.png" alt="Instagram"></a></li>
+                <li><a href="https://wa.me/8968813747" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a></li>
+            </ul>
+        </section>
+    </main>
+
+    <section class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="https://formspree.io/f/xyzyzzqr" method="POST">
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea name="message" id="message" rows="5" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Factory Savings Hub | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

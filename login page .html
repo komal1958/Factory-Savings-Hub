@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Sign Up</title>
+    <style>
+        /* Existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            width: 800px;
+            height: 400px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .welcome-section {
+            background: linear-gradient(to bottom, #6a0dad, #2f2f2f);
+            color: white;
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome-section h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .welcome-section button {
+            width: 100%;
+            padding: 15px;
+            background-color: #fff;
+            border: none;
+            border-radius: 25px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section button:hover {
+            background-color: #e5e5e5;
+        }
+
+        .form-section {
+            width: 50%;
+            padding: 40px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-section.active {
+            display: flex;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-section input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .form-section button {
+            width: 100%;
+            padding: 15px;
+            background-color: #6a0dad;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #5c49b8;
+        }
+
+        .form-section button:disabled {
+            background-color: #cfcfcf;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="welcome-section">
+            <h1>Welcome to FACTORY SAVING HUB</h1>
+            <p>Get, Gift, Glow</p>
+            <button id="signUpBtn">SIGN UP</button>
+            <button id="signInBtn">SIGN IN</button>
+        </div>
+        <div class="form-section" id="signUpForm">
+            <h2>SIGN UP</h2>
+            <input type="text" id="signUpName" placeholder="Your Name">
+            <input type="email" id="signUpEmail" placeholder="Your Email">
+            <input type="password" id="signUpPassword" placeholder="Your Password">
+            <button id="signUpSubmit" disabled>SIGN UP</button>
+        </div>
+        <div class="form-section" id="signInForm">
+            <h2>SIGN IN</h2>
+            <input type="email" id="signInEmail" placeholder="Your Email">
+            <input type="password" id="signInPassword" placeholder="Your Password">
+            <button id="signInSubmit">SIGN IN</button>
+        </div>
+    </div>
+
+    <script>
+        const signUpBtn = document.getElementById('signUpBtn');
+        const signInBtn = document.getElementById('signInBtn');
+        const signUpForm = document.getElementById('signUpForm');
+        const signInForm = document.getElementById('signInForm');
+        const signUpName = document.getElementById('signUpName');
+        const signUpEmail = document.getElementById('signUpEmail');
+        const signUpPassword = document.getElementById('signUpPassword');
+        const signUpSubmit = document.getElementById('signUpSubmit');
+        const signInEmail = document.getElementById('signInEmail');
+        const signInPassword = document.getElementById('signInPassword');
+        const signInSubmit = document.getElementById('signInSubmit');
+
+        signUpBtn.addEventListener('click', function () {
+            console.log("Login Successfull..");
+            signInForm.classList.remove('active');
+            signUpForm.classList.add('active');
+        });
+
+        signInBtn.addEventListener('click', function () {
+            signUpForm.classList.remove('active');
+            signInForm.classList.add('active');
+        });
+
+        function validateSignUp() {
+            const name = signUpName.value.trim();
+            const email = signUpEmail.value.trim();
+            const password = signUpPassword.value.trim();
+            signUpSubmit.disabled = !(name && email && password);
+        }
+
+        signUpName.addEventListener('input', validateSignUp);
+        signUpEmail.addEventListener('input', validateSignUp);
+        signUpPassword.addEventListener('input', validateSignUp);
+
+        signUpSubmit.addEventListener('click', function () {
+            const userData = {
+                name: signUpName.value.trim(),
+                email: signUpEmail.value.trim(),
+                password: signUpPassword.value.trim()
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
+            window.location.href = 'landingpgfinal.html';
+        });
+
+        function signIn() {
+            const storedUser = localStorage.getItem('user');
+            if (storedUser) {
+                const userData = JSON.parse(storedUser);
+                const username = signInEmail.value;
+                const password = signInPassword.value;
+
+                if (username === userData.email && password === userData.password) {
+                    window.location.href = 'landingpgfinal.html';
+                } else {
+                    alert('Invalid credentials');
+                }
+            } else {
+                alert('No user data found. Please sign up first.');
+            }
+        }
+
+        signInSubmit.addEventListener('click', signIn);
+    </script>
+</body>
+
+</html>

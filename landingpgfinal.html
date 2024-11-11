@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Factory Savings Hub</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav .links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav a:hover {
+      background-color: #6a0dad;
+    }
+
+    .nav .auth-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav .auth-buttons a {
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .nav .auth-buttons a:hover {
+      background-color: #5a00b0;
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1600x800') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 0;
+      transition: 8;
+
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #6a0dad;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .button:hover {
+      background-color: #5a00b0;
+    }
+
+    .section {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .section img {
+      width: 100%;
+      max-width: 250px; /* Adjusted size for images */
+      border-radius: 8px;
+      margin: 1rem; /* Space between images */
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: #6a0dad;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    
+    #delayedText {
+            opacity: 0; /* Start with invisible text for smooth transition */
+            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+            font-size: 18px;
+            color: white;
+            margin: 20px;
+            text-align: center;
+        }
+
+        /* Class to trigger the fade-in effect */
+        #delayedText.show {
+            opacity: 1; /* Fully visible */
+        }
+        .footer {
+  background-color: #000000; /* Black background */
+  color: #ffffff;
+  padding: 2rem 0;
+  border-top: 5px solid #6a0dad; /* Purple border */
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 0 1rem;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #6a0dad; /* Purple for hover effect */
+}
+
+.contact-info {
+  margin-top: 1rem;
+}
+
+.contact-info a {
+  display: block;
+  margin: 0.5rem 0;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+  color: #6a0dad; /* Purple for hover effect */
+}
+
+
+        
+    </style>
+  
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <div class="nav">
+    <marquee><b>
+    <p>"Revolutionize your shopping habits by accessing exclusive factory discounts! Discover an array of high-quality products at prices that defy traditional retail."</p>   </b></marquee>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="C:\Users\welcome\Downloads\3010141-hd_1920_1080_24fps.mp4" type="video/mp4">
+    </video>
+    <br> <br> <br> <br> <br>
+    <big><p id="delayedText" class="hidden">Unveiling a fashion destination where trends blend seamlessly with your individual style aspirations. Discover today!</big></p>
+    <script>
+      // Wait for the entire page to load
+      window.addEventListener('load', function() {
+          // Set a timeout to add the class after 6 seconds
+          setTimeout(function() {
+              document.getElementById('delayedText').classList.add('show');
+          }, 5000); // 6 seconds delay
+      });
+  </script><br> 
+    <a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/1stpagr.html"# class="button">New Collection</a>
+  </div>
+
+  <!-- Icons of Elegance: All Collections -->
+  <div class="section">
+    <h2>Icons of Elegance</h2>
+
+    <!-- Men's Collection -->
+    <div class="category">
+      <h3>
+        
+        Men's Formal Collection</h3>
+      <img src= "C:\Users\welcome\Downloads\images (4) (1).png" alt="Men's Collection Image 1">
+      <img src= "C:\Users\welcome\Downloads\resize-1725181565222814276resize1725181472408971676images51.png" alt="Men's Collection Image 2">
+      <img src= "C:\Users\welcome\Downloads\resize-17251827791647441844resize17251818621531064624download1311.png" alt="Men's Collection Image 3">
+      <p><i>Discover timeless sophistication with our men's collection. Featuring classic cuts and premium fabrics, each piece epitomizes elegance and confidence.</i></p>
+    </div>
+
+    <!-- Women's Collection -->
+    <div class="category">
+      <h3>Women's Formal Collection</h3>
+      <img src="C:\Users\welcome\Downloads\images (6) (1).png" alt="Women's Collection Image 1">
+      <img src="C:\Users\welcome\Downloads\resize-17251839031265879840resize17251837261663115839images71.png" alt="Women's Collection Image 2">
+      <img src="C:\Users\welcome\Downloads\resize-1725184128665426051download141.png" alt="Women's Collection Image 3">
+      <p><i>Step into a world of grace with our women's collection. Highlighting modern femininity, our designs showcase elegance and sophistication for every occasion.</i></p>
+    </div>
+
+    <!-- Boys' Collection -->
+    <div class="category">
+      <h3>Boys' Collection</h3>
+      <img src="C:\Users\welcome\Downloads\resize-1725184270219636911download151.png" alt="Boys' Collection Image 1">
+      <img src="C:\Users\welcome\Downloads\resize-17251844102114840788images8.jpeg" alt="Boys' Collection Image 2">
+      <img src="C:\Users\welcome\Downloads\resize-17251848581716122743download16.jpeg"alt="Boys' Collection Image 3">
+      <p><i>Explore our boys' collection, where style meets comfort. Featuring playful yet stylish outfits, each piece is designed to keep up with their active lives while looking great.</i></p>
+    </div>
+
+    <!-- Girls' Collection -->
+    <div class="category">
+      <h3>Girls' Collection</h3>
+      <img src="C:\Users\welcome\Downloads\resize-1725184984109497574images9 (1).png" alt="Girls' Collection Image 1">
+      <img src="C:\Users\welcome\Downloads\resize-17251851991831275264images10 (1).png" alt="Girls' Collection Image 2">
+      <img src="C:\Users\welcome\Downloads\resize-17251872701734163938download17.png" alt="Girls' Collection Image 3">
+      <p><i>Delight in our girls' collection that blends charm and elegance. Designed with attention to detail, these outfits offer comfort and style for every young fashionista.</i></p>
+    </div>
+
+    <!-- Kids' Collection -->
+    <div class="category">
+      <h3>Kids' Collection</h3>
+      <img src="C:\Users\welcome\Downloads\resize-17251874011018657354images11.png" alt="Kids' Collection Image 1">
+      <img src="C:\Users\welcome\Downloads\resize-172518757220831224291kidsshoesJune2220211.jpg" alt="Kids' Collection Image 2">
+      <img src="C:\Users\welcome\Downloads\resize-17251876891554306651KidsProjectorWatch1.jpg" alt="Kids' Collection Image 3">
+      <p><i>Our kids' collection offers playful designs and vibrant colors. Perfect for all-day wear, each piece is crafted for comfort and fun, making every day stylish.</i></p>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Shop By Categories</h4>
+      <ul>
+        <li><a href="#">Dresses & Jumpsuits</a></li>
+        <li><a href="#">Tops</a></li>
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Shirts</a></li>
+        <li><a href="#">Printed T-shirt</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Contact Us</a></li>
+        <li><a href="file:///C:/Users/welcome/OneDrive/Desktop/fee%20final/phone.html">Find a Store</a></li>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul>
+        <a href="https://www.instagram.com/factoryyy_savingggg_hub/profilecard/?igsh=N2tnM3gzbDBmY29o" target="_blank">
+          <img src="https://cdn.iconscout.com/icon/free/png-256/instagram-216-721958.png" alt="Instagram" width="30" height="30" />
+        </a>
+      </ul>
+      <ul>
+        <a href=https://wa.me/8968813747 target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp" width="30" height="30" />
+           
+        </a>
+    </ul>
+    </div>
+  </div>
+  <div class="contact-info">
+    <p>&copy; 2024 Factory Savings Hub. All rights reserved.</p>
+    <a href="https://wa.me/8968813747">Phone: +91 8360798953</a>
+  </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
